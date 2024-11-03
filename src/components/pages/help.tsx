@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { MessageCircle, Phone, Heart } from 'lucide-react'
+import { MessageCircle, Phone } from 'lucide-react'
 
 export default function HelpPage() {
   return (

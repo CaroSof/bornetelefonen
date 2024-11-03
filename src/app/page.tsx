@@ -13,7 +13,7 @@
 "use client"
 
 // React hooks til state og side-effects
-import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 
 // UI komponenter fra shadcn/ui biblioteket
 import { Button } from "@/components/ui/button"
@@ -25,7 +25,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 // Ikoner fra Lucide biblioteket
-import { MessageCircle, Phone, Star, HelpCircle, RefreshCw, Shield, LockIcon, Loader2, MinusIcon, MaximizeIcon } from 'lucide-react'
+import { MessageCircle, Phone, Star, HelpCircle, RefreshCw, Shield, LockIcon, Loader2 } from 'lucide-react'
 
 // Tooltip komponenter til hjælpetekster
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
@@ -34,7 +34,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { motion, AnimatePresence } from "framer-motion"
 
 // Type definitioner og interfaces
-import { ChatState, Counselor, FormErrors, Message } from '@/lib/types'
+import { type ChatState, type Counselor, type FormErrors, type Message } from '@/lib/types'
 
 // Data og hjælpefunktioner
 import { counselors, moods, tips } from '@/data/data'
@@ -374,7 +374,7 @@ export default function BorneTelefonen() {
         clearInterval(intervalId);
         setTimeout(() => {
           setChatState('connecting');
-          startChat();
+          void startChat();
         }, 1000);
       }
     }, 10000); // Opdater hver 10. sekund
@@ -383,7 +383,7 @@ export default function BorneTelefonen() {
     setTimeout(() => {
       clearInterval(intervalId);
       setChatState('connecting');
-      startChat();
+      void startChat();
     }, 60000);
 
     // Cleanup interval når komponenten unmountes
@@ -879,7 +879,7 @@ export default function BorneTelefonen() {
                                       </TooltipTrigger>
                                       <TooltipContent>
                                         <p className="text-sm">Du behøver ikke at bruge dit rigtige navn -
-                                          du kan være helt anonym og bruge et kaldenavn eller bare skrive 'anonym'</p>
+                                          du kan være helt anonym og bruge et kaldenavn eller bare skrive &apos;anonym&apos;</p>
                                       </TooltipContent>
                                     </Tooltip>
                                   </TooltipProvider>
@@ -1002,7 +1002,7 @@ export default function BorneTelefonen() {
                                   </TooltipTrigger>
                                   <TooltipContent>
                                     <p className="text-sm">Du behøver ikke at bruge dit rigtige navn -
-                                      du kan være helt anonym og bruge et kaldenavn ellers kalder vi dig bare 'anonym'</p>
+                                      du kan være helt anonym og bruge et kaldenavn ellers kalder vi dig bare &apos;anonym&apos;</p>
                                   </TooltipContent>
                                 </Tooltip>
                               </TooltipProvider>
